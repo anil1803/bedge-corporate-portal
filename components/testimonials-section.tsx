@@ -62,7 +62,7 @@ export function TestimonialsSection() {
               What Our <span className="text-gradient">Clients Say</span>
             </h2>
             <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
-              Hear from businesses we've helped succeed.
+              Hear from businesses we&apos;ve helped succeed.
             </p>
           </div>
         </MotionBlock>

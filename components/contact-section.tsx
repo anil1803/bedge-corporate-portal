@@ -30,10 +30,10 @@ export function ContactSection({ compact = false }: { compact?: boolean }) {
             Contact Us
           </motion.div>
           <h2 className="mt-6 text-4xl font-bold text-bedge-ink sm:text-5xl dark:text-white">
-            Let's Start a <span className="text-gradient">Conversation</span>
+            Let&apos;s Start a <span className="text-gradient">Conversation</span>
           </h2>
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
-            Have questions? We're here to help. Reach out to our expert team for personalized guidance.
+            Have questions? We&apos;re here to help. Reach out to our expert team for personalized guidance.
           </p>
 
           {/* Contact Cards */}
@@ -111,7 +111,7 @@ export function ContactSection({ compact = false }: { compact?: boolean }) {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl font-bold text-bedge-ink dark:text-white">Send us a Message</h3>
-            <p className="mt-2 text-slate-600 dark:text-slate-300">Fill out the form and we'll get back to you within 24 hours.</p>
+            <p className="mt-2 text-slate-600 dark:text-slate-300">Fill out the form and we&apos;ll get back to you within 24 hours.</p>
 
             <form className="mt-8 grid gap-6" aria-label="Contact form">
               <div className="grid gap-3">
