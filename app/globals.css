@@ -54,6 +54,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.curved-text {
+  text-transform: capitalize;
+}
+
 .serif-accent {
   font-family: Georgia, "Times New Roman", serif;
 }

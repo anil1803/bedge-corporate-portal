@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { AboutSection } from "@/components/about-section";
 import { WhyChooseUs } from "@/components/why-choose-us";
-import { AboutHeader } from "@/components/page-headers";
 
 export const metadata: Metadata = {
   title: "About",
@@ -11,7 +10,6 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <AboutHeader />
       <AboutSection />
       <WhyChooseUs />
     </>

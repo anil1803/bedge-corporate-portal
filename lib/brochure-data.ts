@@ -14,9 +14,9 @@ import {
 } from "lucide-react";
 
 export const company = {
-  name: "B EDGE BUSINESS CONSULTANTS LLP",
+  name: "B-EDGE BUSINESS CONSULTANTS",
   logoText: "B-EDGE",
-  tagline: "One Stop Solution for All Business Needs",
+  tagline: "One Stop Solution For All Business Needs",
   successLine: "Your Success is our Business.",
   consultationLine: "Reach out to us today for a free consultation!",
   email: "bedgebusinessconsultants@gmail.com",

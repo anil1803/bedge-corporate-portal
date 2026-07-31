@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 export function ContactSection({ compact = false }: { compact?: boolean }) {
   return (
-    <section className={compact ? "bg-gradient-to-b from-white via-slate-50/50 to-white py-16 dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950" : "bg-gradient-to-b from-white via-slate-50/50 to-white py-24 dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950"}>
+    <section className={compact ? "bg-gradient-to-b from-white via-slate-50/50 to-white py-16 dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950" : "bg-gradient-to-b from-white via-slate-50/50 to-white py-16 dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950"}>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
         <div className="absolute inset-0" style={{

@@ -15,7 +15,7 @@ const coreValues = [
 
 export function AboutSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-white py-24 dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-white py-16 dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
         <div className="absolute inset-0" style={{
@@ -43,27 +43,9 @@ export function AboutSection() {
         </MotionBlock>
 
         {/* Main Content */}
-        <div className="mt-16 grid gap-12 lg:grid-cols-2">
-          {/* Image Side */}
-          <MotionBlock delay={0.1} type="slide" direction="left">
-            <motion.div
-              className="relative min-h-[400px] overflow-hidden rounded-2xl border border-bedge-blue/10 bg-white shadow-premium-xl dark:bg-slate-800/50 dark:border-bedge-blue/20"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Image
-                src="/brochure/brochure-services-about.jpeg"
-                alt="Brand strategy visual from B EDGE brochure"
-                fill
-                className="object-cover object-left-bottom"
-                sizes="(min-width: 1024px) 520px, 100vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-bedge-blue/30 to-transparent" />
-            </motion.div>
-          </MotionBlock>
-
+        <div className="mt-16">
           {/* Content Side */}
-          <MotionBlock delay={0.2} type="slide" direction="right" className="flex flex-col justify-center">
+          <MotionBlock delay={0.2} type="slide" direction="up" className="flex flex-col justify-center max-w-4xl mx-auto">
             <div className="space-y-6 text-lg leading-8 text-slate-700 dark:text-slate-300">
               {aboutParagraphs.map((paragraph, index) => (
                 <motion.p

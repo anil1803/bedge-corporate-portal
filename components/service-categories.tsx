@@ -7,6 +7,7 @@ import { serviceCategories } from "@/lib/brochure-data";
 import { MotionBlock } from "@/components/motion";
 import { ServiceCard } from "@/components/service-card";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 type ServiceCategoriesProps = {
   preview?: boolean;
@@ -14,9 +15,14 @@ type ServiceCategoriesProps = {
 
 export function ServiceCategories({ preview = false }: ServiceCategoriesProps) {
   const categories = preview ? serviceCategories : serviceCategories;
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
+
+  const toggleExpand = (title: string) => {
+    setExpandedCard(prev => prev === title ? null : title);
+  };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-white py-24 dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-white py-16 dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
         <div className="absolute inset-0" style={{
@@ -67,7 +73,11 @@ export function ServiceCategories({ preview = false }: ServiceCategoriesProps) {
               type="slide"
               direction="up"
             >
-              <ServiceCard category={category} />
+              <ServiceCard
+                category={category}
+                isExpanded={expandedCard === category.title}
+                onToggleExpand={() => toggleExpand(category.title)}
+              />
             </MotionBlock>
           ))}
         </div>

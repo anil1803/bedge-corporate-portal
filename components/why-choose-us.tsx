@@ -39,7 +39,7 @@ function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: strin
 
 export function WhyChooseUs() {
   return (
-    <section className="relative overflow-hidden bg-bedge-ink py-24 text-white">
+    <section className="relative overflow-hidden bg-bedge-ink py-16 text-white">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.05]">
         <div className="absolute inset-0" style={{
