@@ -171,6 +171,16 @@ export function Hero() {
                 >
                   <span className="text-gradient">{company.tagline}</span>
                 </motion.h2>
+                {company.headline && (
+                  <motion.p
+                    className="mt-4 text-lg text-slate-600 dark:text-slate-300 leading-relaxed"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7, duration: 0.8 }}
+                  >
+                    {company.headline}
+                  </motion.p>
+                )}
               </motion.div>
             </div>
           </MotionBlock>

@@ -5,6 +5,7 @@ import { MotionBlock } from "@/components/motion";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { LifeBuoy, BadgeCheck, ClipboardCheck, ShieldCheck, Landmark, Building2, MapPin } from "lucide-react";
 
 function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: string }) {
   const ref = useRef(null);
@@ -122,7 +123,7 @@ export function WhyChooseUs() {
         </MotionBlock>
 
         {/* Feature Cards */}
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {whyChooseUs.map((item, index) => {
             const Icon = item.icon;
             return (

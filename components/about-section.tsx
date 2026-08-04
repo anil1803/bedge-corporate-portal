@@ -1,17 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { aboutParagraphs } from "@/lib/brochure-data";
+import { aboutParagraphs, missionStatement, visionStatement, coreValues } from "@/lib/brochure-data";
 import { MotionBlock } from "@/components/motion";
 import { motion } from "framer-motion";
-import { Target, Eye, Heart, Shield, Users, Zap } from "lucide-react";
-
-const coreValues = [
-  { icon: Shield, title: "Integrity", description: "We maintain the highest ethical standards in all our dealings." },
-  { icon: Users, title: "Client Focus", description: "Your success is our priority. We work tirelessly for your goals." },
-  { icon: Zap, title: "Innovation", description: "We bring creative solutions to complex business challenges." },
-  { icon: Heart, title: "Excellence", description: "We deliver quality services that exceed expectations." }
-];
+import { Target, Eye } from "lucide-react";
 
 export function AboutSection() {
   return (
@@ -36,8 +29,8 @@ export function AboutSection() {
             >
               About Us
             </motion.div>
-            <h2 className="mt-6 text-4xl font-bold text-bedge-ink sm:text-5xl dark:text-white">
-              Your Trusted <span className="text-gradient">Business Partner</span>
+            <h2 className="mt-6 text-4xl font-bold text-gradient sm:text-5xl">
+              About B Edge Business Consultants LLP
             </h2>
           </div>
         </MotionBlock>
@@ -75,7 +68,7 @@ export function AboutSection() {
                 </div>
                 <h3 className="mt-4 text-xl font-semibold text-bedge-ink dark:text-white">Our Mission</h3>
                 <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
-                  To provide innovative, value-driven solutions with integrity and expertise, helping businesses achieve compliance and unlock growth potential.
+                  {missionStatement}
                 </p>
               </motion.div>
 
@@ -92,7 +85,7 @@ export function AboutSection() {
                 </div>
                 <h3 className="mt-4 text-xl font-semibold text-bedge-ink dark:text-white">Our Vision</h3>
                 <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
-                  To be the most trusted business consulting partner, recognized for excellence, innovation, and client success across Madhya Pradesh.
+                  {visionStatement}
                 </p>
               </motion.div>
             </div>
@@ -102,8 +95,8 @@ export function AboutSection() {
         {/* Core Values */}
         <MotionBlock delay={0.3} type="fade">
           <div className="mt-20">
-            <h3 className="text-center text-3xl font-bold text-bedge-ink dark:text-white">Core Values</h3>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <h3 className="text-center text-3xl font-bold text-bedge-ink dark:text-white">Our Core Values</h3>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {coreValues.map((value, index) => {
                 const Icon = value.icon;
                 return (
