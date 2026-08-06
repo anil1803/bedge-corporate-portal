@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X, Moon, Sun, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,12 +10,13 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact" }
+  { href: "/contact", label: "Contact Us" }
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,45 +27,55 @@ export function Navbar() {
     };
 
     const handleDarkMode = () => {
-      const isDarkMode = document.documentElement.classList.contains('dark');
+      const isDarkMode = document.documentElement.classList.contains("dark");
       setIsDark(isDarkMode);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleDarkMode();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleDarkMode = () => {
     setIsDark(!isDark);
-    document.documentElement.classList.toggle('dark');
+    document.documentElement.classList.toggle("dark");
   };
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'glass-strong shadow-premium-lg border-b border-white/20 dark:border-white/10'
-          : 'glass border-b border-white/10 dark:border-white/5'
+          ? "border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/95"
+          : "border-b border-slate-100 bg-white/95 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/90"
       }`}
     >
-      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto flex h-24 max-w-[1500px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <Logo />
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-1 md:flex">
-          {navItems.map((item) => (
-            <Button
-              key={item.href}
-              asChild
-              variant="ghost"
-              size="sm"
-              className="text-sm font-medium text-slate-700 hover:text-bedge-blue dark:text-slate-300 dark:hover:text-bedge-aqua"
-            >
-              <Link href={item.href}>{item.label}</Link>
-            </Button>
-          ))}
+        <div className="hidden items-center gap-10 md:flex">
+          {navItems.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`relative py-9 text-sm font-bold uppercase tracking-wide transition-colors ${
+                  isActive
+                    ? "text-bedge-ink dark:text-white"
+                    : "text-slate-700 hover:text-bedge-blue dark:text-slate-300 dark:hover:text-bedge-aqua"
+                }`}
+              >
+                {item.label}
+                <span
+                  className={`absolute bottom-6 left-0 h-0.5 bg-[#c8952b] transition-all ${
+                    isActive ? "w-full" : "w-0"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </div>
 
         {/* Desktop Actions */}
@@ -79,11 +91,11 @@ export function Navbar() {
           </Button>
           <Button
             asChild
-            className="btn-premium h-10 px-6 shadow-premium bg-gradient-premium hover:opacity-90"
+            className="h-11 bg-bedge-ink px-6 text-sm font-bold uppercase tracking-wide text-white shadow-premium hover:bg-bedge-blue"
           >
             <Link href="/contact">
               <Phone className="mr-2 h-4 w-4" />
-              Contact Us
+              Call Us
             </Link>
           </Button>
         </div>

@@ -21,20 +21,19 @@ export function ServiceCard({ category, isExpanded, onToggleExpand }: ServiceCar
 
   return (
     <motion.div
-      whileHover={{ y: -8, scale: 1.02 }}
+      whileHover={{ y: -5 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
-      <Card className="group flex flex-col overflow-hidden border border-bedge-blue/10 bg-white shadow-premium-lg transition-all duration-300 hover:shadow-premium-xl hover:border-bedge-blue/30 dark:bg-slate-800/50 dark:border-bedge-blue/20 dark:hover:border-bedge-blue/40 min-h-[550px]">
-        <CardHeader className="relative overflow-hidden border-b border-bedge-blue/10 bg-gradient-to-r from-bedge-blue to-bedge-deep p-6 transition-all duration-300 group-hover:from-bedge-deep group-hover:to-bedge-blue flex-shrink-0">
-          <div className="absolute inset-0 bg-gradient-premium opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <Card className="group flex min-h-[550px] flex-col overflow-hidden rounded-none border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:border-[#c8952b]/60 hover:shadow-premium-lg dark:border-white/10 dark:bg-slate-950">
+        <CardHeader className="relative flex-shrink-0 overflow-hidden border-b border-[#c8952b]/40 bg-bedge-ink p-6">
           <div className="relative flex items-center gap-4">
             <motion.div
-              className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-white/30"
-              whileHover={{ rotate: 5 }}
+              className="flex h-14 w-14 items-center justify-center border border-[#c8952b]/50 text-[#c8952b] transition-all duration-300 group-hover:bg-[#c8952b] group-hover:text-bedge-ink"
+              whileHover={{ scale: 1.05 }}
             >
-              <Icon className="h-7 w-7 text-white" />
+              <Icon className="h-7 w-7" />
             </motion.div>
-            <CardTitle className="relative text-xl font-semibold text-white">
+            <CardTitle className="relative text-xl font-extrabold text-white">
               {category.title}
             </CardTitle>
           </div>
@@ -50,7 +49,7 @@ export function ServiceCard({ category, isExpanded, onToggleExpand }: ServiceCar
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
               >
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-bedge-blue transition-colors duration-300 group-hover:text-bedge-aqua" />
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#c8952b]" />
                 <span className="transition-colors duration-300 group-hover:text-bedge-ink dark:group-hover:text-white">
                   {item}
                 </span>
@@ -66,7 +65,7 @@ export function ServiceCard({ category, isExpanded, onToggleExpand }: ServiceCar
             >
               <Button
                 variant="ghost"
-                className="w-full text-bedge-blue hover:bg-bedge-blue/5 hover:text-bedge-deep dark:text-bedge-aqua dark:hover:bg-bedge-blue/10 dark:hover:text-bedge-blue"
+                className="w-full font-bold text-bedge-ink hover:bg-slate-100 hover:text-[#c8952b] dark:text-white dark:hover:bg-white/10"
                 onClick={onToggleExpand}
               >
                 {isExpanded ? (
@@ -78,7 +77,7 @@ export function ServiceCard({ category, isExpanded, onToggleExpand }: ServiceCar
             </motion.div>
           )}
           <motion.div
-            className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700"
+            className="mt-4 border-t border-slate-200 pt-4 dark:border-white/10"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -87,7 +86,7 @@ export function ServiceCard({ category, isExpanded, onToggleExpand }: ServiceCar
             <Button
               asChild
               variant="ghost"
-              className="w-full group/btn border-bedge-blue/20 text-bedge-blue hover:bg-bedge-blue/5 hover:text-bedge-deep dark:border-bedge-blue/30 dark:text-bedge-aqua dark:hover:bg-bedge-blue/10 dark:hover:text-bedge-blue"
+              className="group/btn w-full border border-bedge-ink/20 font-bold uppercase tracking-wide text-bedge-ink hover:bg-bedge-ink hover:text-white dark:border-white/20 dark:text-white"
             >
               <Link href="/contact">
                 Learn More

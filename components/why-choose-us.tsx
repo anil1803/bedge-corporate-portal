@@ -5,7 +5,6 @@ import { MotionBlock } from "@/components/motion";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { LifeBuoy, BadgeCheck, ClipboardCheck, ShieldCheck, Landmark, Building2, MapPin } from "lucide-react";
 
 function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: string }) {
   const ref = useRef(null);
@@ -32,7 +31,7 @@ function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: strin
   }, [isInView, value]);
 
   return (
-    <span ref={ref} className="text-gradient">
+    <span ref={ref}>
       {count}{suffix}
     </span>
   );
@@ -40,57 +39,24 @@ function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: strin
 
 export function WhyChooseUs() {
   return (
-    <section className="relative overflow-hidden bg-bedge-ink py-16 text-white">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.05]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-          backgroundSize: '48px 48px'
-        }} />
-      </div>
+    <section className="relative overflow-hidden bg-bedge-ink py-20 text-white">
+      <div className="absolute inset-x-0 top-0 h-1 bg-[#c8952b]" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.05)_0,rgba(255,255,255,0)_42%)]" />
 
-      {/* Gradient Orbs */}
-      <motion.div
-        className="absolute top-20 left-10 h-64 w-64 rounded-full bg-bedge-blue/20 blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.2, 0.4, 0.2]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-10 h-64 w-64 rounded-full bg-bedge-aqua/20 blur-3xl"
-        animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.2, 0.4, 0.2]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
-        }}
-      />
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8">
         <MotionBlock type="fade">
           <div className="max-w-3xl">
             <motion.div
-              className="inline-flex items-center gap-2 rounded-full border border-bedge-aqua/30 bg-bedge-aqua/10 px-4 py-2 text-sm font-semibold text-bedge-aqua"
+              className="h-1 w-16 bg-[#c8952b]"
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-            >
-              Why Choose Us
-            </motion.div>
-            <h2 className="mt-6 text-4xl font-bold sm:text-5xl">
-              Why Businesses Trust <span className="text-gradient">B EDGE</span>
+            />
+            <p className="mt-5 text-sm font-extrabold uppercase tracking-[0.24em] text-[#c8952b]">Why Choose Us</p>
+            <h2 className="mt-4 text-4xl font-extrabold sm:text-5xl">
+              Why Businesses Trust <span className="text-[#c8952b]">B EDGE</span>
             </h2>
-            <p className="mt-4 text-lg text-slate-300">
+            <p className="mt-4 text-lg leading-8 text-slate-300">
               We combine expertise, integrity, and innovation to deliver exceptional results for your business.
             </p>
           </div>
@@ -98,7 +64,7 @@ export function WhyChooseUs() {
 
         {/* Stats Counter */}
         <MotionBlock delay={0.2} type="slide" direction="up">
-          <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4">
+          <div className="mt-16 grid grid-cols-2 gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-4">
             {[
               { value: 500, suffix: "+", label: "Happy Clients" },
               { value: 35, suffix: "+", label: "Years Experience" },
@@ -107,13 +73,13 @@ export function WhyChooseUs() {
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className="text-center"
+                className="bg-bedge-ink p-7 text-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="text-4xl font-bold sm:text-5xl">
+                <div className="text-4xl font-extrabold text-[#c8952b] sm:text-5xl">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="mt-2 text-sm font-medium text-slate-400">{stat.label}</div>
@@ -123,23 +89,23 @@ export function WhyChooseUs() {
         </MotionBlock>
 
         {/* Feature Cards */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-16 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {whyChooseUs.map((item, index) => {
             const Icon = item.icon;
             return (
               <MotionBlock key={item.title} delay={0.3 + index * 0.1} type="slide" direction="up">
                 <motion.article
-                  className="group h-full rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 hover:border-bedge-aqua/30 hover:bg-white/10 hover:shadow-premium-lg"
-                  whileHover={{ y: -8 }}
+                  className="group h-full bg-bedge-ink p-8 transition-all duration-300 hover:bg-white/10"
+                  whileHover={{ y: -5 }}
                 >
                   <motion.div
-                    className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-bedge-blue to-bedge-aqua text-white shadow-glow"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="flex h-16 w-16 items-center justify-center border border-[#c8952b]/50 text-[#c8952b]"
+                    whileHover={{ scale: 1.06 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <Icon className="h-8 w-8" />
                   </motion.div>
-                  <h3 className="mt-6 text-xl font-semibold text-white group-hover:text-bedge-aqua transition-colors">
+                  <h3 className="mt-6 text-xl font-extrabold text-white transition-colors group-hover:text-[#c8952b]">
                     {item.title}
                   </h3>
                   <p className="mt-3 text-sm leading-6 text-slate-300">

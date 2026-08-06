@@ -17,28 +17,22 @@ export function NewsletterSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-premium py-24">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.1]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-          backgroundSize: '48px 48px'
-        }} />
-      </div>
+    <section className="relative overflow-hidden bg-bedge-ink py-24">
+      <div className="absolute inset-x-0 top-0 h-1 bg-[#c8952b]" />
 
       <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <MotionBlock type="fade">
           <div className="text-center">
             <motion.div
-              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm"
+              className="mx-auto flex h-14 w-14 items-center justify-center border border-[#c8952b]/50 text-[#c8952b]"
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <Mail className="h-4 w-4" />
-              <span className="uppercase tracking-wider">Newsletter</span>
+              <Mail className="h-6 w-6" />
             </motion.div>
-            <h2 className="mt-6 text-4xl font-bold text-white sm:text-5xl">
+            <p className="mt-5 text-sm font-extrabold uppercase tracking-[0.24em] text-[#c8952b]">Newsletter</p>
+            <h2 className="mt-4 text-4xl font-extrabold text-white sm:text-5xl">
               Stay Updated
             </h2>
             <p className="mt-4 text-lg text-white/90">
@@ -62,11 +56,11 @@ export function NewsletterSection() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
                 required
-                className="flex-1 h-14 rounded-xl border-0 bg-white/10 px-6 text-white placeholder-white/60 backdrop-blur-sm outline-none transition-all duration-300 focus:bg-white/20 focus:ring-2 focus:ring-white/50"
+                className="h-14 flex-1 border border-white/20 bg-white px-6 text-bedge-ink outline-none transition-all duration-300 placeholder:text-slate-500 focus:border-[#c8952b] focus:ring-2 focus:ring-[#c8952b]/25"
               />
               <button
                 type="submit"
-                className="h-14 rounded-xl bg-white px-8 font-semibold text-bedge-blue shadow-lg transition-all duration-300 hover:bg-white/90 hover:scale-105 active:scale-95"
+                className="h-14 bg-[#c8952b] px-8 font-extrabold uppercase tracking-wide text-bedge-ink shadow-lg transition-all duration-300 hover:bg-white active:scale-95"
               >
                 {isSubmitted ? (
                   <span className="flex items-center gap-2">

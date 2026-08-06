@@ -40,28 +40,20 @@ export function FAQSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-white py-24 dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-          backgroundSize: '48px 48px'
-        }} />
-      </div>
-
+    <section className="relative overflow-hidden bg-slate-50 py-24 dark:bg-slate-900">
+      <div className="absolute inset-x-0 top-0 h-px bg-slate-200 dark:bg-white/10" />
       <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <MotionBlock type="fade">
           <div className="text-center">
             <motion.div
-              className="inline-flex items-center gap-2 rounded-full border border-bedge-blue/20 bg-bedge-blue/5 px-4 py-2 text-sm font-semibold text-bedge-blue dark:border-bedge-blue/30 dark:bg-bedge-blue/10"
+              className="mx-auto h-1 w-16 bg-[#c8952b]"
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-            >
-              FAQ
-            </motion.div>
-            <h2 className="mt-6 text-4xl font-bold text-bedge-ink sm:text-5xl dark:text-white">
-              Frequently Asked <span className="text-gradient">Questions</span>
+            />
+            <p className="mt-5 text-sm font-extrabold uppercase tracking-[0.24em] text-[#c8952b]">FAQ</p>
+            <h2 className="mt-4 text-4xl font-extrabold text-bedge-ink sm:text-5xl dark:text-white">
+              Frequently Asked <span className="text-[#c8952b]">Questions</span>
             </h2>
             <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
               Find answers to common questions about our services and processes.
@@ -78,11 +70,11 @@ export function FAQSection() {
               direction="up"
             >
               <motion.div
-                className="overflow-hidden rounded-2xl border border-bedge-blue/10 bg-white shadow-premium-lg transition-shadow duration-300 hover:shadow-premium-xl dark:bg-slate-800/50 dark:border-bedge-blue/20"
+                className="overflow-hidden border border-slate-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-premium-lg dark:border-white/10 dark:bg-slate-950"
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="flex w-full items-center justify-between p-6 text-left transition-colors duration-300 hover:bg-bedge-blue/5 dark:hover:bg-bedge-blue/10"
+                  className="flex w-full items-center justify-between p-6 text-left transition-colors duration-300 hover:bg-slate-50 dark:hover:bg-white/5"
                   aria-expanded={openIndex === index}
                 >
                   <span className="text-lg font-semibold text-bedge-ink dark:text-white">
@@ -91,7 +83,7 @@ export function FAQSection() {
                   <motion.div
                     animate={{ rotate: openIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-bedge-blue/10 text-bedge-blue dark:bg-bedge-blue/20 dark:text-bedge-aqua"
+                    className="ml-4 flex h-8 w-8 items-center justify-center border border-[#c8952b]/40 text-[#c8952b]"
                   >
                     <ChevronDown className="h-5 w-5" />
                   </motion.div>
@@ -124,7 +116,7 @@ export function FAQSection() {
               Still have questions?{" "}
               <a
                 href="/contact"
-                className="font-semibold text-bedge-blue transition-colors duration-300 hover:text-bedge-deep dark:text-bedge-aqua dark:hover:text-bedge-blue"
+                className="font-semibold text-[#c8952b] transition-colors duration-300 hover:text-bedge-ink dark:hover:text-white"
               >
                 Contact us
               </a>{" "}

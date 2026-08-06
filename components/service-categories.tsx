@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { serviceCategories } from "@/lib/brochure-data";
 import { MotionBlock } from "@/components/motion";
@@ -22,32 +22,24 @@ export function ServiceCategories({ preview = false }: ServiceCategoriesProps) {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-white py-16 dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-          backgroundSize: '48px 48px'
-        }} />
-      </div>
+    <section className="relative overflow-hidden bg-slate-50 py-20 dark:bg-slate-900">
+      <div className="absolute inset-x-0 top-0 h-px bg-slate-200 dark:bg-white/10" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8">
         <MotionBlock type="fade">
           <div className="mb-16 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <div className="max-w-2xl">
               <motion.div
-                className="inline-flex items-center gap-2 rounded-full border border-bedge-blue/20 bg-bedge-blue/5 px-4 py-2 text-sm font-semibold text-bedge-blue dark:border-bedge-blue/30 dark:bg-bedge-blue/10"
+                className="h-1 w-16 bg-[#c8952b]"
                 initial={{ opacity: 0, y: -10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-              >
-                <Sparkles className="h-4 w-4" />
-                <span className="uppercase tracking-wider">Our Services</span>
-              </motion.div>
-              <h2 className="mt-6 text-4xl font-bold text-bedge-ink sm:text-5xl dark:text-white">
+              />
+              <p className="mt-5 text-sm font-extrabold uppercase tracking-[0.24em] text-[#c8952b]">Our Services</p>
+              <h2 className="mt-4 text-4xl font-extrabold text-bedge-ink sm:text-5xl dark:text-white">
                 Comprehensive Business Solutions
               </h2>
-              <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
+              <p className="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
                 From registration to compliance, we handle all your business needs with expertise and precision.
               </p>
             </div>
@@ -55,7 +47,7 @@ export function ServiceCategories({ preview = false }: ServiceCategoriesProps) {
               <Button
                 asChild
                 variant="outline"
-                className="h-12 px-6 border-bedge-blue/30 hover:bg-bedge-blue/5 dark:border-bedge-blue/40 dark:hover:bg-bedge-blue/10"
+                className="h-12 border-bedge-ink px-6 font-bold uppercase tracking-wide text-bedge-ink hover:bg-bedge-ink hover:text-white dark:border-white dark:text-white"
               >
                 <Link href="/services">
                   View All Services <ArrowRight className="ml-2 h-4 w-4" />
@@ -65,7 +57,7 @@ export function ServiceCategories({ preview = false }: ServiceCategoriesProps) {
           </div>
         </MotionBlock>
 
-        <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
           {categories.map((category, index) => (
             <MotionBlock
               key={category.title}

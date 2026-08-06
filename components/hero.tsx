@@ -1,194 +1,138 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, PhoneCall, Sparkles, TrendingUp, ShieldCheck, Users, CheckCircle2, Building2, FileText, Scale, DollarSign } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  Building2,
+  Calculator,
+  FileText,
+  Globe2,
+  Handshake,
+  PhoneCall,
+  ShieldCheck,
+  Stamp,
+  Users
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { company } from "@/lib/brochure-data";
 import { MotionBlock } from "@/components/motion";
 import { motion } from "framer-motion";
 
 export function Hero() {
   const services = [
-    { icon: Building2, title: "Company Registration", desc: "Pvt Ltd, LLP, Partnership" },
-    { icon: FileText, title: "GST & Tax Compliance", desc: "Registration & Filing" },
-    { icon: Scale, title: "Legal Services", desc: "Agreements & Compliance" },
-    { icon: DollarSign, title: "Business Loans", desc: "MSME & Mudra Loans" }
+    { icon: Building2, title: "Business Registrations", desc: "Private Ltd, LLP, OPC, Partnership, MSME" },
+    { icon: Calculator, title: "Taxation & Compliance", desc: "GST, Income Tax, TDS, ROC filings" },
+    { icon: FileText, title: "Accounting & Bookkeeping", desc: "Accounts management, MIS & reporting" },
+    { icon: ShieldCheck, title: "Legal & Business Advisory", desc: "Contracts, agreements, notices & more" },
+    { icon: Stamp, title: "Trademark Registration", desc: "Brand protection made simple" },
+    { icon: Globe2, title: "IEC & FSSAI Registration", desc: "Import export code, FSSAI & more" }
+  ];
+
+  const stats = [
+    { icon: ShieldCheck, value: "500+", label: "Trusted Clients", prefix: "Trusted by" },
+    { icon: Users, value: "35+", label: "Years Experience", prefix: "Professional" },
+    { icon: BadgeCheck, value: "100%", label: "Compliance Assurance", prefix: "Focused on" },
+    { icon: Handshake, value: "End to End", label: "Business Solutions", prefix: "Complete" }
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-cyan-50/20 dark:from-slate-950 dark:via-blue-950/20 dark:to-cyan-950/10">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-20 right-10 h-72 w-72 rounded-full bg-bedge-blue/5 blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.5, 0.3]
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 left-10 h-96 w-96 rounded-full bg-bedge-aqua/5 blur-3xl"
-          animate={{
-            scale: [1.3, 1, 1.3],
-            opacity: [0.3, 0.5, 0.3]
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }}
-        />
-      </div>
+    <section className="relative overflow-hidden bg-white dark:bg-slate-950">
+      <div
+        className="absolute inset-0 bg-cover bg-[70%_center] bg-no-repeat lg:bg-center"
+        style={{ backgroundImage: "url('/brochure/hero-consulting-bg.png')" }}
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/10 dark:from-slate-950 dark:via-slate-950/86 dark:to-slate-950/20" />
+      <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-slate-950 dark:via-slate-950/80" />
+      <div className="absolute inset-x-0 top-0 h-px bg-slate-200 dark:bg-white/10" />
 
-      {/* Premium Gradient Top Bar */}
-      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-premium" />
+      <div className="relative mx-auto max-w-[1500px] px-4 pt-10 sm:px-6 lg:px-8 lg:pt-16">
+        <div className="grid min-h-[620px] items-center gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-0">
+          <MotionBlock delay={0.1} type="slide" direction="left" className="relative z-10 pb-8 lg:pb-20">
+            <div className="max-w-2xl">
+              <div className="mb-6 h-1 w-16 bg-[#c8952b]" />
+              <h1 className="text-4xl font-extrabold leading-tight text-bedge-ink sm:text-5xl lg:text-6xl dark:text-white">
+                Your Trusted Partner for{" "}
+                <span className="text-[#c8952b]">Business, Financial & Legal</span>{" "}
+                Solutions
+              </h1>
+              <div className="mt-6 h-px w-14 bg-[#c8952b]" />
+              <p className="mt-6 max-w-xl text-base leading-8 text-slate-700 sm:text-lg dark:text-slate-300">
+                From Company Incorporation to GST, Income Tax, Accounting,
+                Compliance, Trademark Registration and Business Advisory - we
+                simplify your business journey under <strong>one roof.</strong>
+              </p>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="grid gap-16 lg:grid-cols-2 lg:gap-12 items-center min-h-[calc(100vh-8rem)]">
-          {/* Left Content - Service Cards */}
-          <MotionBlock delay={0.1} type="slide" direction="left" className="order-2 lg:order-1">
-            <div className="space-y-4">
-              {/* Badge */}
-              <motion.div
-                className="inline-flex items-center gap-2 rounded-full border border-bedge-blue/20 bg-bedge-blue/5 px-4 py-2 text-sm font-semibold text-bedge-blue"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                <Sparkles className="h-4 w-4" />
-                <span className="uppercase tracking-wider">Trusted by 500+ Businesses</span>
-              </motion.div>
-
-              {services.map((service, index) => {
-                const Icon = service.icon;
-                return (
-                  <motion.div
-                    key={service.title}
-                    className="glass-strong rounded-2xl border border-white/30 p-6 shadow-premium-lg dark:border-white/10"
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 + index * 0.1, duration: 0.6 }}
-                    whileHover={{ scale: 1.02, y: -5 }}
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-premium text-white shadow-premium">
-                        <Icon className="h-6 w-6" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg font-bold text-bedge-ink dark:text-white">{service.title}</h3>
-                        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{service.desc}</p>
-                      </div>
-                      <CheckCircle2 className="h-5 w-5 text-bedge-blue shrink-0" />
-                    </div>
-                  </motion.div>
-                );
-              })}
-
-              {/* CTA Buttons */}
-              <div className="mt-6 flex flex-col gap-4 sm:flex-row">
-                <Button
-                  asChild
-                  size="lg"
-                  className="btn-premium h-14 px-8 text-base shadow-premium-lg"
-                >
-                  <Link href="/services">
-                    Explore Services <ArrowRight className="ml-2 h-5 w-5" />
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <Button asChild size="lg" className="h-14 bg-bedge-ink px-7 text-sm font-bold uppercase tracking-wide text-white hover:bg-bedge-blue dark:bg-bedge-blue">
+                  <Link href="/contact">
+                    <PhoneCall className="mr-2 h-5 w-5" />
+                    Get Free Consultation
                   </Link>
                 </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="h-14 px-8 text-base border-bedge-blue/30 hover:bg-bedge-blue/5"
-                >
-                  <Link href="/contact">
-                    Get Free Consultation <PhoneCall className="ml-2 h-5 w-5" />
+                <Button asChild variant="outline" size="lg" className="h-14 border-bedge-ink px-7 text-sm font-bold uppercase tracking-wide text-bedge-ink hover:bg-bedge-ink hover:text-white dark:border-white dark:text-white">
+                  <Link href="/services">
+                    Our Services <ArrowRight className="ml-3 h-5 w-5" />
                   </Link>
                 </Button>
               </div>
-
-              {/* Stats */}
-              <motion.div
-                className="mt-8 grid grid-cols-3 gap-4 border-t border-slate-200 pt-6 dark:border-slate-800"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
-              >
-                {[
-                  { value: "500+", label: "Happy Clients" },
-                  { value: "35+", label: "Years Experience" },
-                  { value: "98%", label: "Success Rate" }
-                ].map((stat, index) => (
-                  <div key={stat.label} className="text-center">
-                    <div className="text-2xl font-bold text-gradient">{stat.value}</div>
-                    <div className="mt-1 text-xs font-medium text-slate-600 dark:text-slate-400">{stat.label}</div>
-                  </div>
-                ))}
-              </motion.div>
             </div>
           </MotionBlock>
 
-          {/* Right Content - Person Image */}
-          <MotionBlock type="slide" direction="right" className="order-1 lg:order-2">
-            <div className="space-y-6">
-              {/* Person Image */}
-              <motion.div
-                className="relative mx-auto max-w-sm overflow-hidden rounded-2xl"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <Image
-                  src="/brochure/person.png"
-                  alt="B-EDGE Business Consultants"
-                  width={400}
-                  height={400}
-                  className="w-full object-cover object-center rounded-2xl"
-                  priority
-                />
-              </motion.div>
-
-              {/* Tagline below image */}
-              <motion.div
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-              >
-                <motion.h2
-                  className="text-3xl font-bold leading-tight text-bedge-ink sm:text-4xl dark:text-white curved-text"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.8 }}
-                >
-                  <span className="text-gradient">{company.tagline}</span>
-                </motion.h2>
-                {company.headline && (
-                  <motion.p
-                    className="mt-4 text-lg text-slate-600 dark:text-slate-300 leading-relaxed"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7, duration: 0.8 }}
-                  >
-                    {company.headline}
-                  </motion.p>
-                )}
-              </motion.div>
-            </div>
-          </MotionBlock>
+          <div className="hidden lg:block" aria-hidden="true" />
         </div>
       </div>
 
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent dark:from-slate-950" />
+      <div className="relative z-20 mx-auto -mt-2 max-w-[1500px] px-4 sm:px-6 lg:-mt-16 lg:px-8">
+        <div className="overflow-hidden rounded-lg border border-[#c8952b] bg-bedge-ink shadow-premium-xl dark:bg-slate-900">
+          <div className="grid divide-y divide-white/15 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-6">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={service.title}
+                  className="flex min-h-32 gap-4 p-5 text-white lg:flex-col xl:flex-row"
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.35 + index * 0.06, duration: 0.5 }}
+                >
+                  <Icon className="h-10 w-10 shrink-0 text-[#c8952b]" />
+                  <div>
+                    <h2 className="text-sm font-extrabold uppercase leading-5">{service.title}</h2>
+                    <p className="mt-2 text-sm leading-5 text-white/80">{service.desc}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <motion.div
+                key={stat.label}
+                className="flex items-center gap-5 border-slate-200 lg:border-r lg:last:border-r-0"
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.55 + index * 0.08, duration: 0.45 }}
+              >
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-bedge-ink text-white shadow-premium dark:bg-bedge-blue">
+                  <Icon className="h-8 w-8" />
+                </div>
+                <div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">{stat.prefix}</p>
+                  <p className="text-2xl font-extrabold leading-7 text-bedge-ink dark:text-white">{stat.value}</p>
+                  <p className="text-sm leading-5 text-slate-700 dark:text-slate-300">{stat.label}</p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }
